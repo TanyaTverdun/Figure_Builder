@@ -61,7 +61,7 @@ Figure Builder — це десктопний застосунок для ств�
 
 ### Data file
 
-![data file](screenshots/data_file.png)
+![data file](img_readme/data_file.png)
 
 ## Як запустити
 
