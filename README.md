@@ -1,55 +1,64 @@
-# Figure Builder (десктопний застосунок на WPF)
+# Figure Builder (Desktop Application in WPF)
+Figure Builder is a desktop application for creating, visualizing, and analyzing two-dimensional geometric figures. Built with WPF and C#, it provides interactive tools to work with various types of shapes. Users can define dimensions, change colors, scale figures, and access detailed information about their properties such as area, perimeter, angles, radii, and more.
 
-Figure Builder — це десктопний застосунок для створення, візуалізації та аналізу двовимірних геометричних фігур. Реалізований на базі WPF і C#, він надає інтерактивні інструменти для роботи з різними типами фігур. Користувач може задавати розміри, змінювати колір, масштабувати фігури та отримувати повну інформацію про їхні властивості: площу, периметр, кути, радіуси та інше.
+## How to Run
 
-## Основні можливості
+1. Clone the repository:
+   ```bash
+   https://github.com/TanyaTverdun/Figure_Builder.git
+   ```
+2. Open the project in **Visual Studio**.
+3. Build and run the solution.
+4. Create and interact with figures through the interface.
 
-- **Вибір фігури**  
-  Можливість вибору типу (трикутник, чотирикутник, коло) та підтипу (рівносторонній, прямокутник, ромб тощо) геометричної фігури.
+## Key Features
 
-- **Малювання та візуалізація**  
-  Динамічна побудова фігури на полотні на основі заданих користувачем розмірів.
+- **Shape Selection**  
+  Ability to choose the type (triangle, quadrilateral, circle) and subtype (equilateral, rectangle, rhombus, etc.) of geometric figures.
 
-- **Геометричний аналіз**  
-  Виведення інформації про фігуру, включно з:
-  - Площа та периметр
-  - Довжини сторін
-  - Внутрішні кути
-  - Радіус вписаного та описаного кола
-  - Довжина середньої лінії
+- **Drawing and Visualization**  
+  Dynamic rendering of figures on a canvas based on user-defined dimensions.
 
-- **Замальовування кольором**  
-  Користувач може обрати будь-який колір для фігури.
+- **Geometric Analysis**  
+  Display of detailed information about each figure, including:
+  - Area and perimeter
+  - Side lengths
+  - Interior angles
+  - Radius of the inscribed and circumscribed circle
+  - Length of the midline
 
-- **Масштабування**  
-  Зміна розмірів фігури з збереженням пропорцій.
+- **Color Filling**  
+  Users can choose any color to fill the figure.
 
-- **Збереження даних**  
-  Збереження фігур у файл (однієї або всіх).
+- **Scaling**  
+  Resizing figures while preserving proportions.
 
-- **Сортування**  
-  Збереження 10 тестових фігур та їх сортування за площею методом **Шелла**.
+- **Data Saving**  
+  Save individual or all created figures to a file.
 
-## Використані технології
+- **Sorting**  
+  Store up to 10 test figures and sort them by area using the Shell Sort algorithm.
 
-- **C#** та **WPF** (.NET)
-- Дизайн UI через **XAML**
-- Делегати та події для оновлення інтерфейсу
-- Об’єктно-орієнтоване проєктування (наслідування, поліморфізм, інкапсуляція)
-- Обробка винятків
-- Робота з файлами (запис)
-- Реалізація алгоритму сортування (Шелла)
+## Technologies Used
 
-## Структура проєкту
+- **C#** and **WPF** (.NET)
+- UI design using **XAML**
+- Delegates and events for UI updates
+- Object-oriented design (inheritance, polymorphism, encapsulation)
+- Exception handling
+- File operations (saving data)
+- Implementation of sorting algorithm (Shell Sort)
 
-- `MainWindow.xaml` — головне вікно застосунку
-- `Figures.cs` — базовий клас фігури
-- `Triangle_*.cs`, `Rectangle_*.cs` — реалізації конкретних фігур
-- `Enums.cs` — переліки типів та підтипів фігур
-- `Exception.cs` — класи винятків
-- `WriteToFile.xaml`, `InfoWindow.xaml` — додаткові вікна
+## Project Structure
 
-## Знімки екрану
+- `MainWindow.xaml` — main application window
+- `Figures.cs` — base class for all figures
+- `Triangle_*.cs`, `Rectangle_*.cs` — specific figure implementations
+- `Enums.cs` — enumerations for figure types and subtypes
+- `Exception.cs` — custom exception classes
+- `WriteToFile.xaml`, `InfoWindow.xaml` — additional UI windows
+
+## Screenshots
 
 ### Main window
 
@@ -63,18 +72,8 @@ Figure Builder — це десктопний застосунок для ств�
 
 ![data file](img_readme/data_file.png)
 
-## Як запустити
+## Author
 
-1. Клонувати репозиторій:
-   ```bash
-   https://github.com/TanyaTverdun/Figure_Builder.git
-   ```
-2. Відкрити проєкт у **Visual Studio**.
-3. Зібрати та запустити рішення.
-4. Створювати фігури та працювати з ними через інтерфейс.
-
-## Авторка
-
-**Тетяна Твердун**  
-Студентка спеціальності "Інженерія програмного забезпечення", група ПЗ-22  
-Національний університет "Львівська політехніка"
+**Tetyana Tverdun**  
+Student of Software Engineering, Group PZ-22  
+Lviv Polytechnic National University
