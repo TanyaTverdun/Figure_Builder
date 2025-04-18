@@ -1,0 +1,59 @@
+﻿<Window x:Class="Figure_Builder.CloseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Figure_Builder"
+        mc:Ignorable="d"
+        Title="save" Height="130" Width="350" Background="Black" x:Name="closeWindow"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="saveButton"
+                Content="Зберегти" 
+                HorizontalAlignment="Stretch" 
+                Margin="0,0,0,0" 
+                VerticalAlignment="Stretch"
+                Background="Transparent"
+                Foreground="White"
+                FontSize ="8"
+                Grid.Column="0"
+                Click="saveButton_click"/>
+            <Button x:Name="noSaveButton"
+                Content="Не зберігати" 
+                HorizontalAlignment="Stretch" 
+                Margin="0,0,0,0" 
+                VerticalAlignment="Stretch"
+                Background="Transparent"
+                Foreground="White"
+                FontSize ="8"
+                Grid.Column="1"
+                Click="notSaveButton_click"/>
+            <Button x:Name="cancelButton"
+                Content="Скасувати" 
+                HorizontalAlignment="Stretch" 
+                Margin="0,0,0,0" 
+                VerticalAlignment="Stretch"
+                Background="Transparent"
+                Foreground="White"
+                FontSize ="8"
+                Grid.Column="2"
+                Click="cancelButton_click"/>
+        </Grid>
+        <Label Content="Зберегти дані у файл?" 
+           HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           VerticalAlignment="Center"
+           Foreground="White"
+           FontSize ="11"/>
+    </Grid>
+</Window>

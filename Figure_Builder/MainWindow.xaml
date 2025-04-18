@@ -1,0 +1,226 @@
+﻿<Window x:Class="Figure_Builder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:Figure_Builder"
+        mc:Ignorable="d"
+        Title="Figures" Height="650" Width="1100" Name="mainFrame" Background="Black">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="80*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="25*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Label Content="Тип:" 
+                        HorizontalAlignment="Left" 
+                        Margin="25,10,10,10" 
+                        VerticalAlignment="Top"
+                        Foreground="White"
+                        FontSize ="12"/>
+                <ComboBox Name="TypeComboBox" 
+                        HorizontalAlignment="Center" 
+                        Margin="0,41,0,0" 
+                        VerticalAlignment="Top" 
+                        Width="150" 
+                        SelectionChanged="TypeComboBox_SelectionChanged">
+                </ComboBox>
+
+                <Label Content="Підтип:" 
+                        HorizontalAlignment="Left" 
+                        Margin="25,70,10,10" 
+                        VerticalAlignment="Top"
+                        Foreground="White"
+                        FontSize ="12"/>
+                <ComboBox Name="SubtypeComboBox" 
+                        HorizontalAlignment="Center" 
+                        Margin="0,100,0,0" 
+                        VerticalAlignment="Top" 
+                        Width="150"
+                        SelectionChanged="UpdateInputs"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Label Content="Розмір:" 
+                       HorizontalAlignment="Left" 
+                       Margin="25,10,0,0" 
+                       VerticalAlignment="Top" 
+                       Foreground="White"
+                       FontSize ="12"/>
+                <Label Content="Ширина:" 
+                        HorizontalAlignment="Left" 
+                        Margin="30,40,0,0" 
+                        VerticalAlignment="Top" 
+                        Foreground="White"
+                        FontSize ="12"/>
+                <Label Content="Довжина:" 
+                        HorizontalAlignment="Left" 
+                        Margin="30,80,0,0" 
+                        VerticalAlignment="Top" 
+                        Foreground="White"
+                        FontSize ="12"/>
+                <TextBox Name="widthTextBox" HorizontalAlignment="Left" 
+                         Margin="127,45,0,0" 
+                         TextWrapping="Wrap" 
+                         Text=" " 
+                         VerticalAlignment="Top" 
+                         Width="54"
+                         PreviewTextInput="HeightTextBox_PreviewTextInput"
+                         TextChanged="WidthTextBox_TextChanged"/>
+                <TextBox Name="heightTextBox" 
+                         HorizontalAlignment="Left" 
+                         Margin="127,85,0,0" 
+                         TextWrapping="Wrap" 
+                         Text=" " 
+                         VerticalAlignment="Top" 
+                         Width="54"
+                         PreviewTextInput="HeightTextBox_PreviewTextInput"
+                         TextChanged="HeightTextBox_TextChanged"/>
+                <Label Content="Колір" 
+                       Margin ="0, 127 0, 0"
+                       HorizontalAlignment="Center"  
+                       Foreground="Black"
+                       FontSize ="12"
+                       Panel.ZIndex="1"/>
+                <xctk:ColorPicker Name="colorPicker"
+                    HorizontalAlignment="Center"    
+                    Margin="0,130,0,0" 
+                    VerticalAlignment="Top"
+                    Height="20"
+                    Width="150"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button x:Name="RefreshButton"
+                        Content="Оновити"
+                        HorizontalAlignment="Center"
+                        Margin="0,50,0,0" 
+                        VerticalAlignment="Top"
+                        Height="20"
+                        Width="150"
+                        Click="RefreshButton_click"/>
+                <Button x:Name="SortButton"
+                        Content="Сортувати"
+                        HorizontalAlignment="Center"
+                        Margin="0,80,0,0" 
+                        VerticalAlignment="Top"
+                        Height="20"
+                        Width="150"
+                        Click="SortButton_click"/>
+                <Button x:Name="DeleteButton"
+                        Content="Видалити"
+                        HorizontalAlignment="Center"
+                        Margin="0,110,0,0" 
+                        VerticalAlignment="Top"
+                        Height="20"
+                        Width="150"
+                        Click="DeleteButton_click"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Button x:Name="CreateButton"
+                        Content="Створити"
+                        HorizontalAlignment="Center"
+                        Margin="0,49,0,0" 
+                        VerticalAlignment="Top"
+                        Height="30"
+                        Width="150"
+                        Click="CreateButton_click"/>
+                <Button x:Name="InfoButton"
+                        Content="Інформація"
+                        HorizontalAlignment="Center"
+                        Margin="0,115,80,0" 
+                        VerticalAlignment="Top"
+                        Height="20"
+                        Width="70"
+                        Click="InfoButton_click"/>
+                <Button x:Name="FileButton"
+                        Content="Запис"
+                        HorizontalAlignment="Center"
+                        Margin="80,115,0,0" 
+                        VerticalAlignment="Top"
+                        Height="20"
+                        Width="70"
+                        Click="WriteFileButton_click"/>
+            </Grid>
+
+        </Grid>
+        <Grid Grid.Column="1"
+              x:Name="workPlace">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="90*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+
+
+                <Grid HorizontalAlignment="Center" Height="33" Background="Black" VerticalAlignment="Center" Width="760">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+
+                        <Rectangle Margin="1,1,0.5,1" x:Name="R1" MouseLeftButtonDown="R1_MouseLeftButtonDown" Fill="Transparent"/>
+                        <Label Name="S1" Content="?" Foreground="White" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="R1_MouseLeftButtonDown"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Rectangle Margin="1,1,0.5,1" x:Name="R2" MouseLeftButtonDown="R2_MouseLeftButtonDown"/>
+                        <Label Name="S2" Content="?" Foreground="White" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="R2_MouseLeftButtonDown"/>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Rectangle Margin="1,1,0.5,1" x:Name="R3" MouseLeftButtonDown="R3_MouseLeftButtonDown"/>
+                        <Label Name="S3" Content="?" Foreground="White" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="R3_MouseLeftButtonDown"/>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <Rectangle Margin="1,1,0.5,1" x:Name="R4" MouseLeftButtonDown="R4_MouseLeftButtonDown"/>
+                        <Label Name="S4" Content="?" Foreground="White" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="R4_MouseLeftButtonDown"/>
+                    </Grid>
+                    <Grid Grid.Column="4">
+                        <Rectangle Margin="1,1,0.5,1" x:Name="R5" MouseLeftButtonDown="R5_MouseLeftButtonDown"/>
+                        <Label Name="S5" Content="?" Foreground="White" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="R5_MouseLeftButtonDown"/>
+                    </Grid>
+                    <Grid Grid.Column="5">
+                        <Rectangle Margin="1,1,0.5,1" x:Name="R6" MouseLeftButtonDown="R6_MouseLeftButtonDown"/>
+                        <Label Name="S6" Content="?" Foreground="White" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="R6_MouseLeftButtonDown"/>
+                    </Grid>
+                    <Grid Grid.Column="6">
+                        <Rectangle Margin="1,1,0.5,1" x:Name="R7" MouseLeftButtonDown="R7_MouseLeftButtonDown"/>
+                        <Label Name="S7" Content="?" Foreground="White" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="R7_MouseLeftButtonDown"/>
+                    </Grid>
+                    <Grid Grid.Column="7">
+                        <Rectangle Margin="1,1,0.5,1" x:Name="R8" MouseLeftButtonDown="R8_MouseLeftButtonDown"/>
+                        <Label Name="S8" Content="?" Foreground="White" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="R8_MouseLeftButtonDown"/>
+                    </Grid>
+                    <Grid Grid.Column="8">
+                        <Rectangle Margin="1,1,0.5,1" x:Name="R9" MouseLeftButtonDown="R9_MouseLeftButtonDown"/>
+                        <Label Name="S9" Content="?" Foreground="White" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="R9_MouseLeftButtonDown"/>
+                    </Grid>
+                    <Grid Grid.Column="9">
+                        <Rectangle Margin="1,1,0.5,1" x:Name="R10" MouseLeftButtonDown="R10_MouseLeftButtonDown"/>
+                        <Label Name="S10" Content="?" Foreground="White" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="R10_MouseLeftButtonDown"/>
+                    </Grid>
+                </Grid>
+                <Label Content="S=" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Center" Foreground="White" FontSize="13"/>
+            </Grid>
+            <Grid Grid.Row="1" Name="spacePaint">
+                <Grid Name="figureGrid" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,39,0,0" Grid.Row="1">
+                    <Polygon Name="figure" Stroke="White" StrokeThickness="2" Stretch="Fill"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
