@@ -49,9 +49,19 @@ Figure Builder — це десктопний застосунок для ств�
 - `Exception.cs` — класи винятків
 - `WriteToFile.xaml`, `InfoWindow.xaml` — додаткові вікна
 
-## Скриншоти
+## Знімки екрану
 
+### Main window
 
+![Main window](img_readme/main_window.png)
+
+### Information window
+
+![information window](img_readme/info_window.png)
+
+### Data file
+
+![data file](screenshots/data_file.png)
 
 ## Як запустити
 
